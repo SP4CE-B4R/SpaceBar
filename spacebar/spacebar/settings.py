@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'website.apps.WebsiteConfig',
+    'crispy_forms',
+    'taggit',
+    'taggit_autosuggest',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +58,7 @@ ROOT_URLCONF = 'spacebar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,5 +120,23 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'one/static'),
+)
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
+MEDIA_URL= '/media/'
+
+LOGIN_REDIRECT_URL= 'homeFeed'
+LOGIN_URL= 'login'
+
+# Enabling case insensitivity in tags
+TAGGIT_CASE_INSENSITIVE = True
+TAGGIT_AUTOSUGGEST_CSS_FILENAME = 'autoSuggest-grappelli.css'

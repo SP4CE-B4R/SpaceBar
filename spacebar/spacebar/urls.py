@@ -12,10 +12,23 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+
+To be included later:
+path('login/', auth_views.LoginView.as_view(template_name='one/pages/login.html'), name='login'),
+path('logout/', auth_views.LogoutView.as_view(template_name='one/pages/logout.html'), name='logout'),
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('website.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('taggit_autosuggest/', include('taggit_autosuggest.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

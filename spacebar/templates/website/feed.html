@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+SpaceBar ~ where the astronauts get high
+{% endblock title %}
+
+{% block content %}
+  <h1>Hello World</h1>
+  {% for post in Post %}
+    {{ post }}
+  {% empty %}
+    Nothing much to show here
+  {% endfor %}
+{% endblock content %}
