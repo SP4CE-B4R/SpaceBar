@@ -19,3 +19,5 @@ from django.views.decorators.http import require_GET
 class Feed(ListView):
     model = Post
     template_name = "website/feed.html"
+    context_object_name = 'posts'
+    ordering = ['-date']

@@ -1,0 +1,9 @@
+/* Bootstrap overrides */
+
+.navbar{background-color: #000!important;}
+.card{background-color: #1b1b1b!important; border-radius: 10px!important;}
+
+/* Custom CSS */
+
+body{background-color: #303030; color: #fff!important;}
+button.material-icons{background: transparent; outline: none; box-shadow: none;}
