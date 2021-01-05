@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Attachments, Comment
 
-class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'body', 'date', 'author')
 
-admin.site.register(Post, PostAdmin)
+admin.site.register(Post)
+admin.site.register(Attachments)
+admin.site.register(Comment)
