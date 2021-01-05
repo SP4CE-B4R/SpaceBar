@@ -14,12 +14,12 @@ class Post(models.Model):
         )
 
 
-class Attachments(models.Model):
+class Attachment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="attachments")
     url = models.URLField()
 
     def __str__(self):
-        return f"Image at {self.url} attached to {post}"
+        return f"Image at {self.url} attached to {self.post}"
 
 
 class Comment(models.Model):

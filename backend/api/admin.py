@@ -1,7 +1,21 @@
 from django.contrib import admin
-from .models import Post, Attachments, Comment
+from .models import Post, Attachment, Comment
 
 
-admin.site.register(Post)
-admin.site.register(Attachments)
+class AttachmentInLine(admin.StackedInline):
+    model = Attachment
+
+
+class CommentInLine(admin.StackedInline):
+    model = Comment
+
+
+class PostAdmin(admin.ModelAdmin):
+    inlines = [
+        AttachmentInLine,
+        CommentInLine,
+    ]
+
+
+admin.site.register(Post, PostAdmin)
 admin.site.register(Comment)
