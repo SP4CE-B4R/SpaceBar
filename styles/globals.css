@@ -34,3 +34,15 @@ a {
 .bg-dark{
   background-color: #212121;
 }
+
+/* loader */
+.spinner {
+  width:1.25rem;
+  height:1.25rem;
+  border-radius:50%;
+  border:2px solid;
+  border-color:#fff #fff0;
+  animation:spin 1s infinite;
+}
+
+@keyframes spin {to{transform: rotate(.5turn)}}
