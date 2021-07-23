@@ -14,7 +14,7 @@ export default function Login(props) {
 
   return (
     <main className="items-center flex justify-center min-h-screen">
-      <div className="p-5 rounded-xl bg-container flex items-center justify-center">
+      <div className="p-8 rounded-xl bg-container flex items-center justify-center">
         {
           user ?
           !username ? <UsernameForm /> : <SignOut />
