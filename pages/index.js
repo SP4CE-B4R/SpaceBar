@@ -5,7 +5,7 @@ import Feed from '../components/Feed';
 
 import { firestore, postToJSON, fromMillis } from '../lib/firebase';
 
-const LIMIT = 10;
+const LIMIT = 20;
 
 export async function getServerSideProps(context) {
   const postsQuery = firestore
@@ -51,12 +51,14 @@ export default function Home(props) {
   };
 
   return (
-    <main>
+    <main className="flex flex-col">
       <Navbar />
 
-      <Feed posts={posts} />
+      <div className="flex flex-col items-center">
+        <Feed posts={posts} />
+      </div>
 
-      {!loading && !postsEnd && <button onClick={getMorePosts}>Load more</button>}
+      {!loading && !postsEnd && <button className="bg-red-500 rounded-lg p-1 px-6 m-2 font-bold w-64 self-center" onClick={getMorePosts}>Load more</button>}
 
       {loading && <div className="spinnner"></div>}
 
