@@ -54,13 +54,13 @@ export default function Home(props) {
     <main className="flex flex-col">
       <Navbar />
 
-      <div className="flex flex-col items-center mt-4">
+      <div className="flex flex-col items-center my-8">
         <Feed posts={posts} img={true} />
       </div>
 
-      {!loading && !postsEnd && <button className="bg-red-500 rounded-lg p-1 px-6 my-8 font-bold w-64 self-center" onClick={getMorePosts}>Load more</button>}
+      {!loading && !postsEnd && <button className="bg-red-500 rounded-lg p-1 px-6 mb-8 font-bold w-64 self-center" onClick={getMorePosts}>Load more</button>}
 
-      {loading && <div className="loading-dots self-center my-8"></div>}
+      {loading && <div className="loading-dots self-center mb-8"></div>}
 
     </main>
   );
