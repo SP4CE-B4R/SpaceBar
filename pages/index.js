@@ -54,7 +54,7 @@ export default function Home(props) {
     <main className="flex flex-col">
       <Navbar />
 
-      <div className="flex flex-col items-center my-8">
+      <div className="flex flex-col items-center my-4 mb-8">
         <Feed posts={posts} img={true} />
       </div>
 
