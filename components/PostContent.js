@@ -14,7 +14,7 @@ export default function PostContent({ post }) {
         </Link>{' '}
         on {createdAt.toISOString()}
       </span>
-      <div className="mt-3 text-xl">
+      <div className="mt-3">
       	<ReactMarkdown>{post?.content}</ReactMarkdown>
       </div>
     </div>

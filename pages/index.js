@@ -5,7 +5,7 @@ import Feed from '../components/Feed';
 
 import { firestore, postToJSON, fromMillis } from '../lib/firebase';
 
-const LIMIT = 20;
+const LIMIT = 15;
 
 export async function getServerSideProps(context) {
   const postsQuery = firestore
@@ -31,7 +31,7 @@ export default function Home(props) {
     setLoading(true);
 
     const last = posts[posts.length - 1];
-    const cursor = typeof last.createdAt === 'number' ? fromMillis(last.createdAt) : last.createdAt;
+    const cursor = typeof last?.createdAt === 'number' ? fromMillis(last.createdAt) : last.createdAt;
 
     const query = firestore
       .collectionGroup('posts')
@@ -54,13 +54,13 @@ export default function Home(props) {
     <main className="flex flex-col">
       <Navbar />
 
-      <div className="flex flex-col items-center">
-        <Feed posts={posts} />
+      <div className="flex flex-col items-center mt-4">
+        <Feed posts={posts} img={true} />
       </div>
 
-      {!loading && !postsEnd && <button className="bg-red-500 rounded-lg p-1 px-6 m-2 font-bold w-64 self-center" onClick={getMorePosts}>Load more</button>}
+      {!loading && !postsEnd && <button className="bg-red-500 rounded-lg p-1 px-6 mt-8 font-bold w-64 self-center" onClick={getMorePosts}>Load more</button>}
 
-      {loading && <div className="spinnner"></div>}
+      {loading && <div className="loading-dots self-center mt-8"></div>}
 
     </main>
   );

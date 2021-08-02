@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { UserContext } from '../../lib/context';
 import { firestore, getUserWithUsername, postToJSON } from '../../lib/firebase';
+
+import Navbar from '../../components/Navbar';
 import PostContent from '../../components/PostContent';
 
 
@@ -17,6 +19,12 @@ export async function getStaticProps({ params }) {
 		post = postToJSON(await postRef.get());
 
 		path = postRef.path;
+	}
+
+	if (!post.uid) {
+		return {
+			notFound: true,
+		}
 	}
 
 	return {
@@ -49,10 +57,13 @@ export default function Post(props) {
 	const post = realTimePost || props.post;
 
 	return (
+		<>
+		<Navbar />
 		<main className="flex flex-col items-center mt-8">
 			<section className="bg-container p-6 rounded-lg m-2 w-3/5">
 				<PostContent post={post} />
 			</section>
 		</main>
+		</>
 	)
 }
