@@ -11,7 +11,7 @@ export default function Feed({ posts, admin, img }) {
 
 function PostItem({ post, admin = false, img = false }) {
   return (
-    <div className="bg-container p-4 px-6 rounded-lg w-11/12 md:w-9/12 lg:w-3/5 mt-4 flex flex-row">
+    <div className="bg-container p-4 px-6 rounded-lg w-11/12 md:w-9/12 lg:w-3/5 mt-4 flex flex-col sm:flex-row">
       {img &&
         <PostImg uid={post.uid} username={post.username} />
       }
@@ -58,7 +58,7 @@ function PostImg({ uid, username }) {
   })
 
   return (
-    <div className="mt-2 flex-shrink-0">
+    <div className="mt-2 mx-3 sm:mx-0 flex-shrink-0">
       <Link href={`/${username}`}>
         <Image className="rounded-full cursor-pointer" src={photoURL || `https://ui-avatars.com/api/?name=${username}`} width='40' height='40' alt={`${username}'s PFP`} />
       </Link>
