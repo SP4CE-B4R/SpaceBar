@@ -60,7 +60,7 @@ export default function Post(props) {
 		<>
 		<Navbar />
 		<main className="flex flex-col items-center mt-8">
-			<section className="bg-container p-6 rounded-lg m-2 w-3/5">
+			<section className="bg-container p-6 rounded-lg m-2 w-11/12 md:w-9/12 lg:w-3/5">
 				<PostContent post={post} />
 			</section>
 		</main>

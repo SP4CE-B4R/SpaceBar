@@ -5,7 +5,7 @@ export default function PostContent({ post }) {
 	const createdAt = typeof post?.createdAt === 'number' ? new Date(post.createdAt) : post.createdAt.toDate();
 
 	return (
-    <div className="card">
+    <div>
       <h1 className="text-green-400 text-2xl font-bold">{post?.title}</h1>
       <span className="text-sm">
         Written by{' '}

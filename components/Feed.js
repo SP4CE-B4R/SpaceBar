@@ -11,7 +11,7 @@ export default function Feed({ posts, admin, img }) {
 
 function PostItem({ post, admin = false, img = false }) {
   return (
-    <div className="bg-container p-4 px-6 rounded-lg w-3/5 mt-4 flex flex-row">
+    <div className="bg-container p-4 px-6 rounded-lg w-11/12 md:w-9/12 lg:w-3/5 mt-4 flex flex-row">
       {img &&
         <PostImg uid={post.uid} username={post.username} />
       }
@@ -24,7 +24,7 @@ function PostItem({ post, admin = false, img = false }) {
         <Link href={`/${post.username}/${post.slug}`}>
           <a className="text-2xl text-green-400 font-bold">{post.title}</a>
         </Link>
-        <ReactMarkdown disallowedElements="img">{post.content.length > 50 ? (post.content.replace(/^(.{250}[^\s]*).*/, "$1") + '...') : post.content}</ReactMarkdown>
+        <ReactMarkdown disallowedElements={["img"]}>{post.content.length > 50 ? (post.content.replace(/^(.{250}[^\s]*).*/, "$1") + '...') : post.content}</ReactMarkdown>
       </div>
 
 
